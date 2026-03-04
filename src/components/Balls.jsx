@@ -13,7 +13,7 @@ export default function Balls({ count = 50, radius = 0.25, spread = 0 }) {
       // smooth rotation with maath easing
       easing.damp3(
         group.current.rotation,
-        [state.clock.elapsedTime * (Math.cos(90)), state.clock.elapsedTime * (Math.cos(30)), 1],
+        [state.clock.elapsedTime * Math.cos(Math.PI / 2), state.clock.elapsedTime * (Math.cos(30)), 1],
         0.1,
         delta
       );

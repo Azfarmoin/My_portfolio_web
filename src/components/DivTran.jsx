@@ -1,6 +1,5 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,51 +12,45 @@ const divTransition = (
   end = "bottom 0%",           // when bottom hits top
   mode = "full"                // "full" | "exit"
 ) => {
-  useGSAP(() => {
-    if (!ref?.current) return;
+  if (!ref?.current) return;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ref.current,
-        start: start,
-        end: end,
-        scrub: true,
-      },
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ref.current,
+      start: start,
+      end: end,
+      scrub: true,
+    },
+  });
+
+  // 🔹 FULL MODE: Left → Center → Right
+  if (mode === "full") {
+    tl.fromTo(
+      ref.current,
+      { x: -valueX, opacity: 0 },
+      { x: 0, opacity: 1, duration: duration, ease: "power2.out" }
+    ).to(ref.current, {
+      x: valueX,
+      opacity: 0,
+      duration: duration,
+      ease: "power2.in",
     });
+  }
 
-    // 🔹 FULL MODE: Left → Center → Right
-    if (mode === "full") {
-      tl.fromTo(
-        ref.current,
-        { x: -valueX, opacity: 0 },
-        { x: 0, opacity: 1, duration: duration, ease: "power2.out" }
-      ).to(ref.current, {
-        x: valueX,
-        opacity: 0,
-        duration: duration,
-        ease: "power2.in",
-      });
-    }
+  // 🔹 EXIT MODE: Only Center → Right
+  if (mode === "exit") {
+    tl.fromTo(
+      ref.current,
+      { x: 0, opacity: 1 },
+      { x: valueX, opacity: 0, duration: duration, ease: "power2.in" }
+    );
+  }
 
-    // 🔹 EXIT MODE: Only Center → Right
-    if (mode === "exit") {
-      tl.fromTo(
-        ref.current,
-        { x: 0, opacity: 1 },
-        {
-          x: valueX,
-          opacity: 0,
-          duration: duration,
-          ease: "power2.in",
-        }
-      );
-    }
-
-    return () => {
-      tl.scrollTrigger?.kill();
-      tl.kill();
-    };
-  }, { scope: ref });
+  // Clean up
+  return () => {
+    tl.scrollTrigger?.kill();
+    tl.kill();
+  };
 };
 
 export default divTransition;

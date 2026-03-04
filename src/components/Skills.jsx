@@ -164,49 +164,55 @@ function Logomarquee() {
     const styleSheet = document.createElement("style");
     styleSheet.innerText = `
       @keyframes marquee-move {
-        to {
-          transform: translateX(calc(-100cqw - var(--item-gap)));
-        }
-      }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Moves exactly half of the double-array */
+ }
     `;
     document.head.appendChild(styleSheet);
     return () => {
       document.head.removeChild(styleSheet);
     };
   }, []);
-  const Marquee = ({
-    logos,
-    direction = 'forwards'
-  }) => {
-    const numItems = logos.length;
-    const speed = '25s';
-    const itemWidth = '150px';
-    const itemGap = '25px';
-    return <div className="max-w-full overflow-hidden" style={{
-      '--speed': speed,
-      '--numItems': numItems,
-      '--item-width': itemWidth,
-      '--item-gap': itemGap,
-      '--direction': direction,
-      maskImage: 'linear-gradient(to right, transparent, black 2rem, black calc(100% - 2rem), transparent)'
-    }}>
-        <div className="w-max opacity-100 flex" style={{
-        '--track-width': `calc(var(--item-width) * ${numItems})`,
-        '--track-gap': `calc(var(--item-gap) * ${numItems})`
-      }}>
-          {[...logos, ...logos].map((logo, index) => <div key={index} className="flex-shrink-0 flex justify-center opacity-100 items-center bg-white/10 border border-black rounded-2xl text-white" style={{
-          width: 'var(--item-width)',
-          aspectRatio: '1 / 1.2',
-          marginRight: 'var(--item-gap)',
-          animation: `marquee-move var(--speed) linear infinite ${direction}`
-        }}>
-              <div className="w-3/5 h-auto ">
+ 
+  // Inside Logomarquee.jsx
+const Marquee = ({ logos, direction = 'forwards' }) => {
+    return (
+      <div 
+        className="w-full overflow-hidden" // Changed max-w-full to w-full
+        style={{
+          '--speed': '25s',
+          '--item-width': '150px',
+          '--item-gap': '25px',
+          '--direction': direction,
+          maskImage: 'linear-gradient(to right, transparent, black 2rem, black calc(100% - 2rem), transparent)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 2rem, black calc(100% - 2rem), transparent)'
+        }}
+      >
+        <div 
+          className="flex w-max" 
+          style={{
+            animation: `marquee-move var(--speed) linear infinite ${direction}`
+          }}
+        >
+          {/* Use a simple 2x map for the loop */}
+          {[...logos, ...logos].map((logo, index) => (
+            <div 
+              key={index} 
+              className="flex-shrink-0 flex justify-center items-center bg-white/10 border border-white/10 rounded-2xl text-white mx-[12.5px]" 
+              style={{
+                width: '150px',
+                aspectRatio: '1 / 1.2',
+              }}
+            >
+              <div className="w-3/5 h-auto">
                 {logo.component}
               </div>
-            </div>)}
+            </div>
+          ))}
         </div>
-      </div>;
-  };
+      </div>
+    );
+};
   return <div className=" items-center overflow-hidden">
        <div className="w-full  max-w-6xl  flex flex-col gap-y-6">
             <Marquee  logos={logos1} />
