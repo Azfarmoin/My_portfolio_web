@@ -1,0 +1,35 @@
+/* App.css */
+@import "tailwindcss";
+
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  /* Prevent horizontal overflow globally */
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: #003366;
+  margin: 0;
+  padding: 0;
+  /* Remove the flex centering from the default Vite template */
+  display: block; 
+}
+
+/* Fix the Scene width issue */
+.Scene {
+  background-color: #000000;
+  width: 100%; /* Use 100% instead of 100vw to account for scrollbars */
+  height: 100dvh;
+}
+.card {
+  padding: 4px;
+  transition: transform 0.3s ease;
+  
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
