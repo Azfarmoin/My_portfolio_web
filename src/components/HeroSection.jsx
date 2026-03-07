@@ -25,10 +25,11 @@ const HeroSection = () => {
   return (
     <section
       ref={heroRef}
-      className="relative w-full min-h-screen bg-[#003366] 
+      className="relative  w-full min-h-screen  bg-[#003366] 
                  flex items-center justify-center 
                  px-6 md:px-16 py-16 md:py-24 overflow-hidden"
     >
+    
       {/* Background Glow */}
       <div className="absolute top-0 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-teal-500/20 blur-[120px] rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-cyan-400/20 blur-[120px] rounded-full"></div>
@@ -36,7 +37,9 @@ const HeroSection = () => {
       <div className="relative w-full max-w-7xl flex flex-col-reverse md:grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         
         {/* LEFT COLUMN */}
-        <div className="w-full flex justify-center md:justify-start">
+        <div className=" flex justify-center md:justify-start ative w-[80%] sm:w-[70%] md:w-full 
+                       max-w-sm md:max-w-md lg:max-w-lg 
+                       h-auto object-cover">
 
           {/* INNER CHILD (Adaptive Behavior) */}
           <div className="w-full lg:w-full lg:h-full 
@@ -78,7 +81,7 @@ const HeroSection = () => {
             {/* Divider */}
             <div className="h-1 w-54 mx-auto md:mx-0 bg-gradient-to-r from-teal-400 to-cyan-500 my-6 rounded-full"></div>
 
-            {/* Description */}
+          
             {/* Description */}
 <div className="w-sm lg:w-md text-center md:text-left">
   <p

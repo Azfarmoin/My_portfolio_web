@@ -22,11 +22,12 @@ html, body {
 .Scene {
   background-color: #000000;
   width: 100%; /* Use 100% instead of 100vw to account for scrollbars */
-  height: 100vh;
+  height: 100dvh;
 }
 .card {
   padding: 4px;
   transition: transform 0.3s ease;
+  
 }
 
 .card:hover {

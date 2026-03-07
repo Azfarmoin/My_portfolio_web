@@ -25,7 +25,7 @@ const About = () => {
   return (
     <section
       ref={aboutRef}
-      className="mt-32 mb-24 relative w-full min-h-screen bg-[#003366] flex items-center justify-center px-6 md:px-16 py-16 md:py-24 overflow-hidden"
+      className=" mt-32 mb-24 relative w-full min-h-screen bg-[#003366] flex items-center justify-center px-6 md:px-16 py-16 md:py-24 overflow-hidden"
     >
       {/* Gradient Glow Background */}
       <div className="absolute top-0 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-teal-500/20 blur-[120px] rounded-full"></div>
@@ -43,7 +43,9 @@ const About = () => {
         </div>
 
         {/* RIGHT - CONTENT */}
-        <div className="text-white w-full text-center md:text-left max-w-2xl">
+            <div className="w-[80%] sm:w-[70%] md:w-full 
+                          max-w-sm md:max-w-md lg:max-w-lg 
+                          h-auto object-cover text-white  text-center md:text-left max-w-2xl">
           <h2 className="font-bold tracking-tight mb-6 text-[clamp(2rem,5vw,3rem)]">
             About Me
           </h2>
