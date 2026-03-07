@@ -24,13 +24,50 @@ const GithubIcon = () => (
     <path d="M12 0C5.37 0 0 5.37 0 12a12 12 0 008.21 11.39c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.78-1.34-1.78-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.23 1.84 1.23 1.07 1.83 2.8 1.3 3.48.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.39 1.23-3.23-.12-.3-.53-1.53.12-3.19 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0112 5.8c1.02.01 2.05.14 3.01.41 2.28-1.55 3.29-1.23 3.29-1.23.65 1.66.24 2.89.12 3.19.77.84 1.23 1.92 1.23 3.23 0 4.62-2.81 5.65-5.49 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.83.58A12 12 0 0024 12c0-6.63-5.37-12-12-12z" />
   </svg>
 );
+//  const SingleCard = ({ project }) => (
+//    <div className=" w-auto  h-auto object-covergroup flex flex-col rounded-3xl overflow-hidden shadow-xl bg-white/5 backdrop-blur-xl border border-white/10 mx-4 my-4">
+//      <div className="relative aspect-[16/10] overflow-hidden">
+//        <img
+//          src={project.image}
+//         alt={project.title}
+//         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+//       />
+//       <div className="absolute inset-0 bg-gradient-to-t from-[#003366]/80 via-transparent to-transparent" />
+//     </div>
+//     <div className="p-6 flex flex-col justify-between min-h-[200px]">
+//       <div>
+//         <h3 className="text-lg font-semibold text-white mb-2">{project.title}</h3>
+//         <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">{project.description}</p>
+//       </div>
+//       <div className="flex items-center justify-between mt-6">
+//         {/* Fixed missing <a> tags */}
+//         <a
+//           href={project.live}
+//           target="_blank"
+//           rel="noopener noreferrer"
+//           className="px-5 py-2.5 text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-[#008080] to-[#00b3b3] shadow-lg transition-all hover:scale-105 active:scale-95"
+//         >
+//           View Project
+//         </a>
 
-const SingleCard = ({ project }) => (
-  <div className="w-[80%] sm:w-[90%] md:w-full 
-                       max-w- lg:max-w-lg 
-                       
-                       h-auto object-covergroup flex flex-col rounded-3xl overflow-hidden shadow-xl bg-white/5 backdrop-blur-xl border border-white/10 mx-4 my-4">
-    <div className="relative aspect-[16/10] overflow-hidden">
+//         <a
+//           href={project.github}
+//           target="_blank"
+//           rel="noopener noreferrer"
+//           className="flex items-center justify-center w-11 h-11 rounded-xl bg-white/10 border border-white/20 text-white hover:bg-[#008080] transition-colors"
+//         >
+//           <GithubIcon />
+//         </a>
+//       </div>
+//     </div>
+//   </div>
+// );
+
+const SingleCard = ({ project, compact = false }) => (
+  <div className={`group flex flex-col rounded-3xl overflow-hidden shadow-xl bg-white/5 backdrop-blur-xl border border-white/10 
+    ${compact ? "mx-8 my-3 max-w-xs" : "mx-4 my-4"}`}>
+    
+    <div className={`relative overflow-hidden ${compact ? "aspect-[16/9] max-h-28" : "aspect-[16/10]"}`}>
       <img
         src={project.image}
         alt={project.title}
@@ -38,18 +75,21 @@ const SingleCard = ({ project }) => (
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#003366]/80 via-transparent to-transparent" />
     </div>
-    <div className="p-6 flex flex-col justify-between min-h-[200px]">
+
+    <div className={`flex flex-col justify-between ${compact ? "p-4 min-h-[140px]" : "p-6 min-h-[200px]"}`}>
       <div>
-        <h3 className="text-lg font-semibold text-white mb-2">{project.title}</h3>
-        <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">{project.description}</p>
+        <h3 className={`font-semibold text-white mb-1 ${compact ? "text-sm" : "text-lg"}`}>{project.title}</h3>
+        <p className={`text-gray-300 leading-relaxed line-clamp-2 ${compact ? "text-xs" : "text-sm"}`}>{project.description}</p>
       </div>
-      <div className="flex items-center justify-between mt-6">
-        {/* Fixed missing <a> tags */}
+
+      <div className="flex items-center justify-between mt-4">
+        
         <a
           href={project.live}
           target="_blank"
           rel="noopener noreferrer"
-          className="px-5 py-2.5 text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-[#008080] to-[#00b3b3] shadow-lg transition-all hover:scale-105 active:scale-95"
+          className={`font-semibold rounded-xl text-white bg-gradient-to-r from-[#008080] to-[#00b3b3] shadow-lg transition-all hover:scale-105 active:scale-95
+            ${compact ? "px-3 py-1.5 text-xs" : "px-5 py-2.5 text-sm"}`}
         >
           View Project
         </a>
@@ -58,10 +98,12 @@ const SingleCard = ({ project }) => (
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-11 h-11 rounded-xl bg-white/10 border border-white/20 text-white hover:bg-[#008080] transition-colors"
+          className={`flex items-center justify-center rounded-xl bg-white/10 border border-white/20 text-white hover:bg-[#008080] transition-colors
+            ${compact ? "w-8 h-8" : "w-11 h-11"}`}
         >
           <GithubIcon />
         </a>
+
       </div>
     </div>
   </div>
@@ -200,7 +242,9 @@ const CardCarousel = () => {
               <p className="text-teal-400 text-sm font-semibold uppercase tracking-widest mb-2 px-4">
                 {group.label}
               </p>
-              <SingleCard project={project} />
+              <div className="w-1/2flex justify-center">
+              <SingleCard project={project}  />
+              </div>
             </div>
           ))
         )}
@@ -227,7 +271,7 @@ const CardCarousel = () => {
 
     >
       <div className="card"><div className="card-content"><Projects title="My Work" projects={myprojects} /></div></div>
-      <div className="card"><div className="card-content"><Projects title="Frontend Engineering" projects={frontendProjects} /></div></div>
+      <div className="card"><div className="card-content"><Projects title="Frontend Engineering" projects={frontendProjects} compact={true} /></div></div>
       <div className="card"><div className="card-content"><Projects title="Backend Engineering" projects={backendProjects} /></div></div>
       <div className="card"><div className="card-content"><Projects title="SaaS Applications" projects={saasProjects} /></div></div>
     </Carousel>
