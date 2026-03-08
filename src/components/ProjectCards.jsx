@@ -9,7 +9,7 @@ const Projects = ({ title = "Featured Projects", projects = [] }) => {
   return (
     <section className="w-full py-12 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#148EaE] mb-12">
           {title}
         </h2>
 
@@ -69,5 +69,6 @@ const Projects = ({ title = "Featured Projects", projects = [] }) => {
     </section>
   );
 };
+
 
 export default Projects;

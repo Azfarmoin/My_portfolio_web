@@ -11,7 +11,7 @@ html, body {
   /* Prevent horizontal overflow globally */
   max-width: 100%;
   overflow-x: hidden;
-  background-color: #003366;
+ background: radial-gradient(circle, #020c1b 0%, #011628 40%, #002147 75%, #003366 100%);;
   margin: 0;
   padding: 0;
   /* Remove the flex centering from the default Vite template */
