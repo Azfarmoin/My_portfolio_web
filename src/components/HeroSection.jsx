@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Scene from "./Scene.jsx";
 import pic from "../assets/azfarpf.png";
 import divTransition from "./DivTran.jsx";
-
+import reasume from "../assets/AzfarmoinResume.pdf";
 const HeroSection = () => {
   const heroRef = useRef(null);
 
@@ -243,6 +243,7 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-1">
+              <a href={reasume} download target="_blank" rel="noopener noreferrer">
               <button
                 className="btn-primary flex items-center gap-2.5 px-7 py-3 rounded-xl font-semibold text-[#011628] text-sm"
                 style={{
@@ -251,7 +252,7 @@ const HeroSection = () => {
                   fontFamily: "'DM Sans', sans-serif",
                   letterSpacing: "0.01em",
                 }}
-              >
+                >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                   <polyline points="7 10 12 15 17 10" />
@@ -259,8 +260,8 @@ const HeroSection = () => {
                 </svg>
                 Download Résumé
               </button>
-            
-
+              </a>
+            <a href="#project">
               <button
                 className="btn-secondary flex items-center gap-2.5 px-7 py-3 rounded-xl text-sm font-medium border"
                 style={{
@@ -271,13 +272,14 @@ const HeroSection = () => {
                   fontFamily: "'DM Sans', sans-serif",
                 }}
                 >
+
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                   <polyline points="14 2 14 8 20 8" />
                 </svg>
                 View Projects
               </button>
-              
+              </a>
             </div>
 
             {/* Social Links */}
@@ -288,7 +290,7 @@ const HeroSection = () => {
               <div style={{ width: 24, height: 1, background: "rgba(45,212,191,0.3)" }} />
 
               {/* GitHub */}
-              <a href="#" aria-label="GitHub"
+              <a href="https://github.com/Azfarmoin/" aria-label="GitHub"
                 className="social-icon w-9 h-9 flex items-center justify-center rounded-lg ml-2"
                 style={{ color: "rgba(186,230,253,0.6)", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
@@ -297,7 +299,7 @@ const HeroSection = () => {
               </a>
 
               {/* LinkedIn */}
-              <a href="#" aria-label="LinkedIn"
+              <a href="https://www.linkedin.com/in/azfar-moin-9bb31339b/" aria-label="LinkedIn"
                 className="social-icon w-9 h-9 flex items-center justify-center rounded-lg"
                 style={{ color: "rgba(186,230,253,0.6)", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -306,7 +308,7 @@ const HeroSection = () => {
               </a>
 
               {/* Email */}
-              <a href="#" aria-label="Email"
+              <a href="#contact" aria-label="Email"
                 className="social-icon w-9 h-9 flex items-center justify-center rounded-lg"
                 style={{ color: "rgba(186,230,253,0.6)", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">

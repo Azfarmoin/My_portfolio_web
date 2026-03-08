@@ -9,12 +9,30 @@ const skills = [
   { name: "MongoDB", icon: "🍃" },
   { name: "Tailwind", icon: "🎨" },
   { name: "GSAP", icon: "✨" },
+  { name: "API Integration", icon: "🔗" },
+  { name: "Bootstrap", icon: "🅱️" },
+  { name: "C", icon: "🔵" },
+  { name: "C++", icon: "➕" },
+  { name: "CSS", icon: "🎨" },
+  { name: ".ENV", icon: "🔒" },
+  { name: "Express", icon: "🚂" },
+  { name: "Git", icon: "🌿" },
+  { name: "GitHub", icon: "🐙" },
+  { name: "HTML", icon: "🌐" },
+  { name: "Java", icon: "☕" },
+  { name: "JavaScript", icon: "🟡" },
+  { name: "Linux", icon: "🐧" },
+  { name: "MERN Stack", icon: "🔷" },
+  { name: "Mongoose", icon: "🦦" },
+  { name: "MySQLAdmin", icon: "🐬" },
+  { name: "Postman", icon: "📮" },
+  { name: "Vue", icon: "💚" },
 ];
 
 const stats = [
   { value: "2+", label: "Years Exp." },
   { value: "20+", label: "Projects" },
-  { value: "10+", label: "Clients" },
+  { value: "1", label: "Clients" },
 ];
 
 const About = () => {
@@ -284,25 +302,7 @@ const About = () => {
               ))}
             </div>
 
-            {/* CTA button */}
-            <div className="flex justify-center md:justify-start mt-2">
-              <button
-                className="resume-btn flex items-center gap-3 px-8 py-3.5 rounded-xl font-semibold text-[#011628] text-base"
-                style={{
-                  background: "linear-gradient(135deg, #2dd4bf 0%, #06b6d4 60%, #38bdf8 100%)",
-                  boxShadow: "0 8px 32px rgba(45,212,191,0.3)",
-                  fontFamily: "'DM Sans', sans-serif",
-                  letterSpacing: "0.01em",
-                }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <polyline points="7 10 12 15 17 10" />
-                  <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
-                Download Résumé
-              </button>
-            </div>
+           
 
           </div>
         </div>

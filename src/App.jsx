@@ -11,7 +11,7 @@
   import HeroSection from "./components/HeroSection.jsx";
 import CardCarousel from "./components/CardCarousel.jsx";
 
-
+import CertificatesSection from "./components/CertificatesSection.jsx";
 
   
 
@@ -27,15 +27,16 @@ import CardCarousel from "./components/CardCarousel.jsx";
         <About />
 
         {/* PROJECTS SECTION */}
-        <section className="mt-[10vh] py-20 bg-[radial-gradient(circle,_#020c1b_0%,_#011628_40%,_#002147_75%,_#003366_100%)]">
+        <section id="project" className="mt-[10vh] py-20 bg-[radial-gradient(circle,_#020c1b_0%,_#011628_40%,_#002147_75%,_#003366_100%)]">
           <h2 className="text-3xl text-[#148E8E] sm:text-4xl md:text-5xl font-bold  text-center mb-12">
             Featured Projects
           </h2>
           <div className="w-full min-h-[75vh]">
-    <CardCarousel id="project" />
+    <CardCarousel  />
           </div>
         </section>
 
+        <CertificatesSection />
         {/* SKILLS SECTION */}
         <section className="py-24 w-full bg-[radial-gradient(circle,_#020c1b_0%,_#011628_40%,_#002147_75%,_#003366_100%)] flex flex-col items-center justify-center">
           <h1 style={{ textShadow: "1px 1px 1px rgb(0,0,0), 2px 2px 10px rgb(2, 101, 162)" }} className="text-[#148E8E] text-2xl md:text-3xl font-bold mb-10 text-center">
@@ -47,7 +48,10 @@ import CardCarousel from "./components/CardCarousel.jsx";
         </section>
 
         {/* CONTACT SECTION */}
+        <div id="contact" >
+
         <Contact />
+        </div>
       </div>
     );
   }
